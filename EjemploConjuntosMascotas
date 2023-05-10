@@ -1,0 +1,35 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class EjemploConjuntosMascotas {
+
+    public static void main(String[] args) {
+        // Generar dos conjuntos de mascotas aleatorias
+        Set<Mascota> conjunto1 = new HashSet<>();
+        Set<Mascota> conjunto2 = new HashSet<>();
+        
+        for (int i = 0; i < 4; i++) {
+            conjunto1.add(Utilidades.mascotaAleatoria());
+            conjunto2.add(Utilidades.mascotaAleatoria());
+        }
+        
+        // Unir los dos conjuntos anteriores en un tercer conjunto
+        Set<Mascota> conjuntoUnion = new HashSet<>(conjunto1);
+        conjuntoUnion.addAll(conjunto2);
+        
+        // Obtener la intersección del conjunto de unión con el primer conjunto de mascotas
+        Set<Mascota> conjuntoInterseccion = new HashSet<>(conjuntoUnion);
+        conjuntoInterseccion.retainAll(conjunto1);
+        
+        // Obtener la diferencia entre el conjunto de unión y el primer conjunto de mascotas
+        Set<Mascota> conjuntoDiferencia = new HashSet<>(conjuntoUnion);
+        conjuntoDiferencia.removeAll(conjunto1);
+        
+        // Mostrar el contenido de cada conjunto
+        System.out.println("Conjunto 1: " + conjunto1);
+        System.out.println("Conjunto 2: " + conjunto2);
+        System.out.println("Conjunto unión: " + conjuntoUnion);
+        System.out.println("Conjunto intersección: " + conjuntoInterseccion);
+        System.out.println("Conjunto diferencia: " + conjuntoDiferencia);
+    }
+}
